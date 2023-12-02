@@ -8,5 +8,10 @@ const ingredients = [
 ];
 
 const ingredientsUl = document.getElementById('ingredients');
-const ingredientsLi = ingredients.map(ingredient => `<li class="item">${ingredient}</li>`).join('');
+const ingredientsLi = ingredientsArray.map(ingredient => {
+  const listItem = document.createElement('li');
+  listItem.textContent = ingredient;
+  listItem.classList.add('item');
+  return listItem.outerHTML;
+}).join('');
 ingredientsUl.insertAdjacentHTML('beforeend', ingredientsLi);
